@@ -3,7 +3,6 @@ const del = require('del');
 const typescript = require('gulp-typescript');
 const tscConfig = require('./tsconfig.json');
 
-const concat = require('gulp-concat');
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
@@ -25,9 +24,13 @@ gulp.task('index', function() {
     return gulp.src('index.html')
         .pipe(useref())
         .pipe(gulp.dest('dist'));
-
 });
 
+/**
+ * responsible for recording all of the compiled javascript file references
+ * into index.html. This happens *after* index.html has been moved into the dist
+ * folder
+ */
 gulp.task('deploy', ['index'], function() {
 
     const inject = require('gulp-inject');
