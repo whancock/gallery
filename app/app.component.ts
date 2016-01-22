@@ -1,7 +1,15 @@
-import {Component} from 'angular2/core';
+import {Component} from 'angular2/core'
+import {NavComponent} from './nav.component'
 
 @Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular 2 App and more</h1>'
+    selector: 'wingoes',
+    template: `
+
+        <wingoes-nav></wingoes-nav>
+
+        <h4>Now we should show some photos or some shit</h4>
+
+    `,
+    directives: [NavComponent]
 })
-export class AppComponent { }
+export class WingoesComponent { }

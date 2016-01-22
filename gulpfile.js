@@ -1,21 +1,13 @@
 const gulp = require('gulp');
-const del = require('del');
-const typescript = require('gulp-typescript');
-const tscConfig = require('./tsconfig.json');
-
 
 // clean the contents of the distribution directory
-gulp.task('clean', function () {
-    return del('dist/**/*');
-});
+/*gulp.task('clean', function () {
 
-// TypeScript compile
-gulp.task('compile', ['clean'], function () {
-    return gulp
-        .src('app/**/*.ts')
-        .pipe(typescript(tscConfig.compilerOptions))
-        .pipe(gulp.dest('dist/app'));
-});
+ const del = require('del');
+
+    return del('dist/!**!/!*');
+});*/
+
 
 gulp.task('index', function() {
 
@@ -26,33 +18,5 @@ gulp.task('index', function() {
         .pipe(gulp.dest('dist'));
 });
 
-/**
- * responsible for recording all of the compiled javascript file references
- * into index.html. This happens *after* index.html has been moved into the dist
- * folder
- */
-gulp.task('deploy', ['index'], function() {
-
-    const inject = require('gulp-inject');
-    var sources = gulp.src(['app/**/*.js'], {read: false, cwd: 'dist/'});
-
-    gulp.src('index.html', {cwd: 'dist/'})
-        .pipe(inject(sources))
-        .pipe(gulp.dest('dist'))
-
-});
-
-gulp.task('serve', function() {
-
-    const webserver = require('gulp-webserver');
-
-    gulp.src('dist')
-        .pipe(webserver({
-            livereload: true,
-            open: true
-        }));
-
-});
-
-gulp.task('build', ['compile', 'index', 'deploy']);
+gulp.task('build', ['index']);
 gulp.task('default', ['build']);
