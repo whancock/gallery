@@ -1,15 +1,17 @@
 <html>
 
 <head>
-    <title>Wingoes</title>
+    <title>Angular 2 QuickStart</title>
 
     <!-- 1. Load libraries -->
-    <!-- build:js vendor.js -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <!-- endbuild -->
 
     <!-- 2. Configure SystemJS -->
     <script>
@@ -30,10 +32,6 @@
 <!-- 3. Display the application -->
 <body>
 <my-app>Loading...</my-app>
-
-<!-- inject:js -->
-<!-- endinject -->
-
 </body>
 
 </html>
