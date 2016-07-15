@@ -1,0 +1,9 @@
+<div>
+  <h2>My Heroes</h2>
+  <ul>
+    <li *ngFor="let photo of photos" 
+      (click)="onSelect(photo)">
+      <span class="badge">{{photo.id}}</span> {{photo.title}}
+    </li>
+  </ul>
+</div>

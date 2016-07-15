@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+import {PhotosComponent} from './photos.component';
+import './rxjs-operators';
+
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1>'
+  template: '<h1>My First Angular 2 App</h1><my-photos></my-photos>',
+  directives: [
+    PhotosComponent
+  ]
 })
 export class AppComponent { }
