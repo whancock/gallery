@@ -9,7 +9,7 @@ export class PhotoService {
 
   constructor (private http: Http) {}
   
-  private photosUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
+  private photosUrl = '/api/photos';
 
   getPhotos(): Observable<Photo[]> {
     return this.http.get(this.photosUrl)
@@ -18,8 +18,11 @@ export class PhotoService {
   }
 
   private extractData(res: Response) {
+
+    //console.log(res.json());
+
     let body = res.json();
-    return body.data || { };
+    return body || [];
   }
 
   private handleError (error: any) {

@@ -4,7 +4,7 @@ import './rxjs-operators';
 
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1><my-photos></my-photos>',
+  template: '<h1>HEADER GOES HERE</h1><my-photos></my-photos>',
   directives: [
     PhotosComponent
   ]

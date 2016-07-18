@@ -3,9 +3,10 @@ import { Photo } from './photo';
 
 @Component({
   selector: 'photo',
+  inputs: ['photo'],
   template: `
-  	<h1>My First Angular 2 App</h1>
-  	<img src="" />
+  	<h1>photo title</h1>
+  	<img src="{{photo.url}}" />
 	`
 })
 export class PhotoComponent { }

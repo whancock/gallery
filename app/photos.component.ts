@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Photo } from './photo';
+//import { PhotoComponent } from './photo.component';
 import { PhotoService } from './photo.service';
+
 
 @Component({
   selector: 'my-photos',
@@ -12,14 +14,12 @@ import { PhotoService } from './photo.service';
 export class PhotosComponent implements OnInit {
 
   photos: Photo[];
-  selectedPhoto: Photo;
   mode = 'Observable';
 
   constructor(
     private _photoService: PhotoService) { }
 
   ngOnInit() {
-    console.log('yeah we here');
     this.getPhotos();
   }
 
@@ -27,6 +27,4 @@ export class PhotosComponent implements OnInit {
     this._photoService.getPhotos().subscribe(photos => this.photos = photos);
   }
 
-  onSelect(photo: Photo) { this.selectedPhoto = photo; }
- 
 }
